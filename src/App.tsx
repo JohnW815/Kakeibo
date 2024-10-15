@@ -7,13 +7,16 @@ import { setMaxListeners } from 'events';
 import axios from 'axios';
 
 const App: React.FC = () => {
-  const [array, setArray] = useState([]);
+  const [array, setArray] = useState<string[]>([]);
 
 
   const fetchApi = async() => {
     const response = await axios.get("http://localhost:4000/dairy");
-    setArray(response.data.fruits);
-    console.log(response.data.fruits);
+    const contentArray: string[] = [];
+    response.data.forEach(element => {
+      console.log(element)
+    })
+    setArray(contentArray);
   }
 
   useEffect(() => {

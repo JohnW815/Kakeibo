@@ -16,7 +16,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions))
 
-app.get('/', router)
+app.use('/', router)
 
 const port = 4000;
 const server = app.listen(port, () => {
