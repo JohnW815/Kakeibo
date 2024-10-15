@@ -5,20 +5,14 @@ const router = require('./routes/router');
 
 const app = express();
 
-app.use(bodyParser.json);
-app.use(bodyParser.urlencoded({extended:false}));
-
-const corsOptions = {
-    origin: '*',
-    credential: true,
-    optionSuccessStatus: 200,
+const corsOption = {
+    origin: ["http://localhost:3000"]
 }
 
-app.use(cors(corsOptions));
-app.use('/', router);
-app.get('/', (req, res) => {
-    console.log('test');
-    res.status(500).send('hi');
+app.use(cors(corsOption));
+
+app.get('/api', (req, res) => {
+    res.json({fruits: ["apple", "orange", "banana"] });
 })
 
 const port = 4000;
