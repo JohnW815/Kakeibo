@@ -11,7 +11,7 @@ const App: React.FC = () => {
 
 
   const fetchApi = async() => {
-    const response = await axios.get("http://localhost:4000/api");
+    const response = await axios.get("http://localhost:4000/dairy");
     setArray(response.data.fruits);
     console.log(response.data.fruits);
   }
@@ -25,9 +25,9 @@ const App: React.FC = () => {
       <Header />
       <body>
         <InputField />
-        {array}
       </body>
       <Footer />
+      {array}
     </div>
   );
 }
