@@ -1,5 +1,5 @@
-const express = require('express')
-const router = express.Router()
+const express = require('express');
+const router = express.Router();
 
 router.get('/dairy', (req, res) => {
     const dairyData = [
@@ -17,7 +17,7 @@ router.get('/dairy', (req, res) => {
         },
     ]
 
-    res.send(dairyData)
+    res.send(dairyData);
 })
 
-module.exports = router
+module.exports = router;

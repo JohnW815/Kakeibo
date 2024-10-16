@@ -12,9 +12,12 @@ const App: React.FC = () => {
 
   const fetchApi = async() => {
     const response = await axios.get("http://localhost:4000/dairy");
+
+    const data: {content:string}[] = response.data;
     const contentArray: string[] = [];
-    response.data.forEach(element => {
-      console.log(element)
+
+    data.forEach(element=> {
+      contentArray.push(element.content);
     })
     setArray(contentArray);
   }
