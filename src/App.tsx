@@ -6,20 +6,25 @@ import Footer from './component/Footer';
 import { setMaxListeners } from 'events';
 import axios from 'axios';
 
+type Diary = {
+  content: string
+}
+
 const App: React.FC = () => {
-  const [array, setArray] = useState<string[]>([]);
+  const [diary, setDiary] = useState<Diary[]>([]);
+  // const [array, setArray] = useState<string[]>([]);
 
 
   const fetchApi = async() => {
-    const response = await axios.get("http://localhost:4000/dairy");
+    const { data }: { data: Diary[] } = await axios.get("http://localhost:4000/dairy");
 
-    const data: {content:string}[] = response.data;
-    const contentArray: string[] = [];
+    // const data: {content:string}[] = response.data;
+    // const contentArray: string[] = [];
 
-    data.forEach(element=> {
-      contentArray.push(element.content);
-    })
-    setArray(contentArray);
+    // data.forEach(element=> {
+    //   contentArray.push(element.content);
+    // })
+    setDiary(data);
   }
 
   useEffect(() => {
@@ -33,7 +38,7 @@ const App: React.FC = () => {
         <InputField />
       </body>
       <Footer />
-      {array}
+      {diary.map(item => item.content)}
     </div>
   );
 }
