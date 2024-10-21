@@ -4,7 +4,6 @@ import axios from 'axios'
 const inputField = () => {
 
     const axiosPostData = async() => {
-        console.log('test');
         const postData =  {
             name: 'test',
         }
@@ -14,7 +13,10 @@ const inputField = () => {
 
     return (
         <form action="" className="input">
-            <input type="input" className="input__box" />
+            <div className="input__title">
+                <label htmlFor="title" className="input__title--lab">Title</label>
+                <input type="input" className="input__title--box" />
+            </div>            
             <button className="input__submit" onClick={axiosPostData}>
                 GO
             </button>
