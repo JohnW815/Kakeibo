@@ -2,14 +2,13 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const Add: React.FC = () => {
-    const [postData, setPostData] = useState({
-        name: '',
-        snippet: '',
-        body: '',
+    const [postData, setPostData] = useState<any>({
+        title: 'test',
+        snippet: 'test',
+        body: 'test',
       });
 
     const axiosPostData = async() => {
-        console.log('test')
         await axios.post('http://localhost:4000/add-diary', postData);
     }
 

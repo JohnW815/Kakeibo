@@ -12,17 +12,18 @@ const corsOptions = {
     optionuccessStatus: 200
 };
 app.use(cors());
+app.use(express.json())
 
 const dbURI = 'mongodb+srv://wongsm041121:031301abc@kakeibo.0sffd.mongodb.net/kakeibo?retryWrites=true&w=majority&appName=Kakeibo';
 mongoose.connect(dbURI)
     .then((result) => app.listen(4000))
     .catch((err) => console.log(err));
 
-app.get('/add-diary', (req, res) => {
+app.post('/add-diary', (req, res) => {
     const diary = new Diary({
-        title: 'new diary',
-        snippet: 'about my diary',
-        body: 'more and more'
+        title: req.body.title,
+        snippet: req.body.snippet,
+        body: req.body.body
     })
 
     diary.save()
