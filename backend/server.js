@@ -45,8 +45,8 @@ app.get('/all-diaries', (req, res) => {
         })
 })
 
-app.get('/single-diary', (req, res) => {
-    Diary.findById('67135d2829679aef0ebefee3')
+app.get('/single-diary/:id', (req, res) => {
+    Diary.findById(req.body.id)
         .then((result) => {
             res.send(result);
         })

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from "react-router-dom";
 
 type Diary = {
     _id: string,
@@ -30,7 +31,11 @@ const List: React.FC = () => {
     return(
         <div>
             Listing
-            {diary.map(item => item.title)}    
+            <ol>
+              {diary.map(item => <li>
+                <Link to={item._id} state={{ body: item.body }} >{item.title}</Link>
+              </li>)}    
+            </ol>
         </div>
     )
 }
