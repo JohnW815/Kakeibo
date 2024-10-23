@@ -46,6 +46,7 @@ app.get('/all-diaries', (req, res) => {
 })
 
 app.get('/single-diary/:id', (req, res) => {
+    console.log(req.body.id)
     Diary.findById(req.body.id)
         .then((result) => {
             res.send(result);

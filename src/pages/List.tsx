@@ -32,9 +32,11 @@ const List: React.FC = () => {
         <div>
             Listing
             <ol>
-              {diary.map(item => <li>
-                <Link to={item._id} state={{ body: item.body }} >{item.title}</Link>
-              </li>)}    
+              {diary.map(item => 
+                <li>
+                  <Link to={item._id}>{item.title}</Link>
+                </li>
+              )}    
             </ol>
         </div>
     )
