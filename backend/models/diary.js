@@ -14,6 +14,10 @@ const diarySchema = new Schema({
         type: String,
         require: true
     }
+    // user: {
+    //     type: String,
+    //     require: true,
+    // }
 }, {timestamps: true})
 
 const Diary = mongoose.model('Diary', diarySchema);

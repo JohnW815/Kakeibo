@@ -19,7 +19,7 @@ const List: React.FC = () => {
   
     const fetchApi = async() => {
       // const { data }: { data: Diary[] } = await axios.get("http://localhost:4000/all-diaries");
-      const data:any = await axios.get("http://localhost:4000/all-diaries")
+      const data:any = await axios.get("http://localhost:4000/diary/all")
         .then(data => setDiary(data.data))
         .catch(err => console.log(err))
     }

@@ -9,7 +9,7 @@ const Add: React.FC = () => {
       });
 
     const axiosPostData = async() => {
-        await axios.post('http://localhost:4000/add-diary', postData);
+        await axios.post('http://localhost:4000/diary/add', postData);
     }
 
     return (

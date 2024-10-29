@@ -7,18 +7,18 @@ import {
 
 const header = () => {
   return (
-    <div>
-      <div>KAIKEBO</div>
+    <div className="font-bold bg-yellow-100 p-8 flex justify-between">
+      <div className="text-3xl">KAIKEBO</div>
         <nav>
-            <ul>
+            <ul className="flex gap-x-3">
                 <li>
                   <Link to="/">Home</Link>
                 </li>
                 <li>
-                  <Link to="/listing-page">List</Link>
+                  <Link to="/diary-list">List</Link>
                 </li>
                 <li>
-                  <Link to="/add">Add</Link>
+                  <Link to="/diary-add">Add</Link>
                 </li>
             </ul>
         </nav>
