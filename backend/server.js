@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const session = require('express-session');
 
 const diaryRoute = require('./routes/diaryRoute');
 const userRoute = require('./routes/userRoute');
@@ -13,6 +14,12 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 app.use(express.json());
+
+app.use(session({
+    secret: 'secret',
+    saveUninitialized: false,
+    resave: true,
+}))
 
 //diary route
 app.use('/diary', diaryRoute);
